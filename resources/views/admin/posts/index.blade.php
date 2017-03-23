@@ -21,7 +21,7 @@
                 <td>{{$post->user->name}}</td>
                 <td> <img height="30" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/50x50'}}" alt=""></td>
                 <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->title}}</a></td>
-                <td>{{$post->category != NULL ? $post->category->name : 'User has no category'}}</td>
+                <td>{{$post->category != NULL ? $post->category->name : 'Uncategorized'}}</td>
                 <td>{{$post->created_at->diffForHumans()}}</td>
                 <td>{{$post->updated_at->diffForHumans()}}</td>
             </tr>
