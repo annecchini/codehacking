@@ -1,11 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 
+@if(Session::has('deleted_category'))
+    <p class="bg-danger">{{session('deleted_category')}}</p>
+@endif
+
 <h1>Categories</h1>
 
 <div class="col-sm-4">
-    <h4>Create Category</h4>
-
     {!! Form::open(['method'=>'POST', 'action'=>'AdminCategoriesController@store']) !!}
 
     <div class="form-group">
