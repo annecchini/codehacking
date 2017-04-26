@@ -21,7 +21,7 @@ class AdminPostsController extends Controller {
      */
     public function index() {
         //
-        $posts = Post::all();
+        $posts = Post::paginate(3);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -32,7 +32,7 @@ class AdminPostsController extends Controller {
      */
     public function create() {
         //
-        $categories = Category::lists('name', 'id')->all();
+        $categories = Category::pluck('name', 'id')->all();
         return view('admin.posts.create', compact('categories'));
     }
 
@@ -75,7 +75,7 @@ class AdminPostsController extends Controller {
     public function edit($id) {
         //
         $post = Post::findOrFail($id);
-        $categories = Category::lists('name', 'id')->all();
+        $categories = Category::pluck('name', 'id')->all();
 
         return view('admin.posts.edit', compact('post', 'categories'));
     }
@@ -92,6 +92,8 @@ class AdminPostsController extends Controller {
 
 
         $post = Post::findOrFail($id);
+        //para criar uma slug nova.
+        $post->slug = null;
         $input = $request->all();
 
         if ($file = $request->file('photo_id')) {
@@ -128,5 +130,15 @@ class AdminPostsController extends Controller {
         Session::flash('deleted_post', 'The post has been deleted');
         return redirect('/admin/posts');
     }
-
+    
+    public function post($slug){
+        $post = Post::whereSlug($slug)->get()->first();
+        return view('post', compact('post'));
+    }
+    
+    public function postx($slug){
+        $post = Post::whereSlug($slug)->get()->first();
+        return view('postx', compact('post'));
+    }
+    
 }

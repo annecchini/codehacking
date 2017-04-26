@@ -148,6 +148,16 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        // Pacote instalado via composer require
+        Collective\Html\HtmlServiceProvider::class,
+        
+        // Pacote instalado via composer require
+        Cviebrock\EloquentSluggable\ServiceProvider::class,        
+        
+        //Gerenciador de arquivos e imagens via composer require 
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+           
         /*
          * Application Service Providers...
          */
@@ -156,8 +166,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         
-        // Pacote instalado via composer require
-        Collective\Html\HtmlServiceProvider::class,
+
 
     ],
 
@@ -208,6 +217,9 @@ return [
         // Pacote instalado via composer require
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        
+        //Pacote instalado via composer require
+        'Image' => Intervention\Image\Facades\Image::class,
         
     ],
 

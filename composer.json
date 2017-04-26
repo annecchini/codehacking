@@ -6,8 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
-        "laravelcollective/html": "^5.2.0"
+        "laravel/framework": "5.3.*",
+        "laravelcollective/html": "^5.2.0",
+        "doctrine/dbal": "^2.5",
+        "cviebrock/eloquent-sluggable": "4.1.2",
+        "unisharp/laravel-filemanager": "^1.7",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
